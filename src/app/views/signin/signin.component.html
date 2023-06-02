@@ -1,0 +1,42 @@
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <mat-icon color="primary" matPrefix class="icon">
+      alternate_email
+    </mat-icon>
+    <input matInput formControlName="email" placeholder="pat@example.com" />
+    <mat-error *ngIf="signInForm.get('email')?.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="signInForm.get('email')?.hasError('pattern')">
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <mat-icon color="primary" matPrefix class="icon"> lock </mat-icon>
+    <input
+      matInput
+      formControlName="password"
+      [type]="showPassword ? 'text' : 'password'"
+    />
+    <mat-icon matSuffix (click)="togglePasswordVisibility()">
+      {{ showPassword ? "visibility_off" : "visibility" }}
+    </mat-icon>
+    <mat-error *ngIf="signInForm.get('password')?.hasError('required')">
+      Please insert password
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="mt-10"
+    type="submit"
+    [disabled]="signInForm.invalid"
+  >
+    Login
+  </button>
+  <p><a href="">Crea un nuovo account</a></p>
+</form>
