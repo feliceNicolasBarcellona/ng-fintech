@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,12 +8,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SigninComponent {
 
+  showPassword: boolean = false;
+
   signInForm = this.fb.group({
     email:['', [Validators.required, Validators.pattern("[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}")]],
     password:['',[Validators.required]]
   })
-
-  showPassword: boolean = false;
 
   constructor(private fb: FormBuilder){}
 

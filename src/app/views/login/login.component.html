@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <mat-card-content>
+    <app-signin *ngIf="visible"></app-signin>
+    <app-register *ngIf="!visible"></app-register>
+  </mat-card-content>
+  <mat-card-actions>
+    <p>
+      <a href="#" (click)="toggleForm()">{{
+        visible ? "Create a new account" : "Already have an account? login"
+      }}</a>
+    </p>
+  </mat-card-actions>
+</mat-card>

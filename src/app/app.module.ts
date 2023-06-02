@@ -8,12 +8,14 @@ import { MaterialModule } from './shared/material/material.module';
 import { SigninComponent } from './views/signin/signin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './views/register/register.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
