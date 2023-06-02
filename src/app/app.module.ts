@@ -9,13 +9,15 @@ import { SigninComponent } from './views/signin/signin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
+import { CardListComponent } from './views/card-list/card-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,

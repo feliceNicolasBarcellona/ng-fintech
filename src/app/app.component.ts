@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Card } from './models/card';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-fintech';
+
+  checkTransactions(event: Card){
+    console.log(event._id, 'check');
+  }
+
+  removeCard(event: Card){
+    console.log(event._id, 'remove');
+  }
+
+  add(){
+    console.log('add');
+
+  }
 }
