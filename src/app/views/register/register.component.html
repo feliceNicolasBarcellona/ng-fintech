@@ -1,0 +1,114 @@
+<form
+  [formGroup]="registerForm"
+  class="custom-form"
+  (ngSubmit)="onSubmit()"
+>
+
+  <mat-form-field
+    appearance="outline"
+  >
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      formControlName="email"
+      placeholder="pat@example.com"
+    >
+    <mat-error
+      *ngIf="registerForm.get('email')?.hasError('required')"
+    >
+      <strong>Email</strong> is required
+    </mat-error>
+    <mat-error
+      *ngIf="registerForm.get('email')?.hasError('pattern')"
+    >
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+  >
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      formControlName="name"
+    >
+    <mat-error
+      *ngIf="registerForm.get('name')?.hasError('required')"
+    >
+      <strong>Name</strong> is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Surname</mat-label>
+    <input
+      matInput
+      formControlName="surname"
+    >
+    <mat-error
+      *ngIf="registerForm.get('surname')?.hasError('required')"
+    >
+      <strong>Surname</strong> is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+      <mat-icon
+        color="primary"
+        matPrefix
+        class="icon"
+    >
+      lock
+    </mat-icon>
+    <input
+      matInput
+      formControlName="password"
+      [type]="showPassword ? 'text' : 'password'"/>
+    <mat-icon
+      matSuffix
+      (click)="togglePasswordVisibility()"
+    >
+      {{showPassword ? 'visibility_off' : 'visibility'}}
+    </mat-icon>
+    <mat-error
+      *ngIf="registerForm.get('password')?.hasError('required')"
+    >
+      <strong>Password</strong> is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Repeat Password</mat-label>
+    <mat-icon
+      color="primary"
+      matPrefix class="icon">lock</mat-icon>
+    <input
+      matInput
+      formControlName="repeatPassword"
+      [type]="showPassword ? 'text' : 'password'"/>
+    <mat-icon
+      matSuffix
+      (click)="togglePasswordVisibility()"
+    >
+      {{showPassword ? 'visibility_off' : 'visibility'}}
+    </mat-icon>
+    <mat-error
+      *ngIf="registerForm.get('password')?.hasError('required')"
+    >
+    <strong>Password</strong> is required
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button color="primary"
+    class="mt-10"
+    type="submit"
+    [disabled]="registerForm.invalid"
+  >
+    Register
+  </button>
+  <p><a href="">Hai già un'account? Accedi</a></p>
+</form>
+

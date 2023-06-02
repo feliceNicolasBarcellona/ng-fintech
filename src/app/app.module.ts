@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { SigninComponent } from './views/signin/signin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './views/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent
+    SigninComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
