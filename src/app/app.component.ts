@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Card } from './models/card';
+import { CardForm } from './models/card-form';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,15 @@ export class AppComponent {
 
   add(){
     console.log('add');
+  }
+
+  addHandler(event: CardForm){
+    console.log(event);
+  }
+
+  cancelHandler(){
+    console.log('cancel');
 
   }
+
 }

@@ -1,0 +1,59 @@
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Card Type</mat-label>
+    <mat-select formControlName="type" type="text">
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+    <mat-error>Please choose card type</mat-error>
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstName" type="text"/>
+          <mat-error *ngIf="cardForm.get('firstName')?.hasError('required')">
+            <strong>First Name</strong> is required
+          </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastName" type="text"/>
+          <mat-error *ngIf="cardForm.get('lastName')?.hasError('required')">
+            <strong>Last Name</strong> is required
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Card Number</mat-label>
+    <input matInput formControlName="cardNumber" type="number" />
+    <mat-error *ngIf="cardForm.get('cardNumber')?.hasError('required')">
+      <strong>Card Number</strong> is required
+    </mat-error>
+    <mat-error *ngIf="cardForm.get('cardNumber')?.hasError('pattern')">
+      Please enter 16 digits
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Security Code</mat-label>
+    <input matInput formControlName="securityCode" type="number" />
+    <mat-error *ngIf="cardForm.get('securityCode')?.hasError('required')">
+      <strong>Security Code</strong> is required
+    </mat-error>
+    <mat-error *ngIf="cardForm.get('securityCode')?.hasError('pattern')">
+      Please enter 3 digits
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Card</button>
+
+  <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+</form>
