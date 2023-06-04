@@ -1,0 +1,13 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" position="end">
+    <app-card-form #cardForm (onClick)="drawer.toggle()" (addCard)="newCard($event)" (click)="dispose()"></app-card-form>
+  </mat-drawer>
+
+  <div>
+    <app-card-list
+      (add)="drawer.toggle()"
+      [cards]="cards"
+      (removeCard)="deleteCard($event)"
+    ></app-card-list>
+  </div>
+</mat-drawer-container>

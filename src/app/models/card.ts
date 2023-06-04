@@ -1,8 +1,8 @@
 export interface Card {
   _id: string;
-  number: string;
+  number?: string;
   ownerId: string;
   owner: string;
-  type: "visa" | "mastercard";
+  type: "Visa" | "Mastercard";
   amount: number;
 }

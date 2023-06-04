@@ -2,8 +2,8 @@
   <div mat-subheader>Cards</div>
   <mat-list-item *ngFor="let card of cards">
     <mat-icon matListItemIcon>credit_card</mat-icon>
-    <div matListItemTitle>{{ card.number }}</div>
-    <div matListItemLine>€ {{ card.amount }} - {{ card.type }}</div>
+    <div matListItemTitle>{{ card?.number }}</div>
+    <div matListItemLine>€ {{ card?.amount }} - {{ card?.type }}</div>
     <div matListItemMeta>
       <mat-icon matListItemIcon matTooltip="check transactions" (click)="checkTransactions.emit(card)">
         receipt

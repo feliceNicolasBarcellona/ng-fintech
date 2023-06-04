@@ -1,3 +1,4 @@
+<div mat-subheader>Add Card</div>
 <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Card Type</mat-label>
@@ -14,7 +15,7 @@
       <td>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>First name</mat-label>
-          <input matInput formControlName="firstName" type="text"/>
+          <input matInput formControlName="firstName" type="text" />
           <mat-error *ngIf="cardForm.get('firstName')?.hasError('required')">
             <strong>First Name</strong> is required
           </mat-error>
@@ -23,7 +24,7 @@
       <td>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Last name</mat-label>
-          <input matInput formControlName="lastName" type="text"/>
+          <input matInput formControlName="lastName" type="text" />
           <mat-error *ngIf="cardForm.get('lastName')?.hasError('required')">
             <strong>Last Name</strong> is required
           </mat-error>
@@ -33,18 +34,18 @@
   </table>
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Card Number</mat-label>
-    <input matInput formControlName="cardNumber" type="number" />
-    <mat-error *ngIf="cardForm.get('cardNumber')?.hasError('required')">
+    <input matInput formControlName="number" />
+    <mat-error *ngIf="cardForm.get('number')?.hasError('required')">
       <strong>Card Number</strong> is required
     </mat-error>
-    <mat-error *ngIf="cardForm.get('cardNumber')?.hasError('pattern')">
+    <mat-error *ngIf="cardForm.get('number')?.hasError('pattern')">
       Please enter 16 digits
     </mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Security Code</mat-label>
-    <input matInput formControlName="securityCode" type="number" />
+    <input matInput formControlName="securityCode" />
     <mat-error *ngIf="cardForm.get('securityCode')?.hasError('required')">
       <strong>Security Code</strong> is required
     </mat-error>
@@ -53,7 +54,16 @@
     </mat-error>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Add Card</button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="onClick.emit()"
+  >
+    Add Card
+  </button>
 
-  <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+  <button mat-stroked-button type="button" (click)="onClick.emit(); cleanup()">
+    Cancel
+  </button>
 </form>
