@@ -64,6 +64,8 @@ export class CardsComponent {
 
   dispose() {
     this.cardForm.cleanup()
+    console.log('cleanup');
+
   }
 
   checkTransactions() {

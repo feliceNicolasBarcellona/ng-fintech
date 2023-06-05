@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 import { SigninComponent } from './views/signin/signin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
 import { CardListComponent } from './views/card-list/card-list.component';
@@ -15,6 +15,7 @@ import { CardsComponent } from './views/cards/cards.component';
 import { MovementComponent } from './views/movement/movement.component';
 import { MovementsComponent } from './views/movements/movements.component';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
+import { FilterByIdPipe } from './shared/pipes/filter-by-id.pipe';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,16 @@ import { TruncatePipe } from './shared/pipes/truncate.pipe';
     CardsComponent,
     MovementComponent,
     MovementsComponent,
-    TruncatePipe
+    TruncatePipe,
+    FilterByIdPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

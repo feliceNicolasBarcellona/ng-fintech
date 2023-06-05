@@ -1,34 +1,33 @@
 import { Component } from '@angular/core';
 import { Card } from './models/card';
 import { CardForm } from './models/card-form';
+import { Movement } from './models/movement';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'ng-fintech';
 
-  checkTransactions(event: Card){
+  checkTransactions(event: Card) {
     console.log(event._id, 'check');
   }
 
-  removeCard(event: Card){
+  removeCard(event: Card) {
     console.log(event._id, 'remove');
   }
 
-  add(){
+  add() {
     console.log('add');
   }
 
-  addHandler(event: CardForm){
+  addHandler(event: CardForm) {
     console.log(event);
   }
 
-  cancelHandler(){
+  cancelHandler() {
     console.log('cancel');
-
   }
-
 }

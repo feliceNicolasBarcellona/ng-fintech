@@ -30,9 +30,7 @@ export class CardFormComponent {
   }
 
   public cleanup(){
-    if(this.cardForm.valid){
       this.cardForm.reset()
-    }
   }
 
 }

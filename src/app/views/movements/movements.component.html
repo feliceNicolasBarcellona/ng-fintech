@@ -1,1 +1,35 @@
-<p>movements works!</p>
+<div style="padding: 15px">
+  <mat-form-field appearance="outline">
+    <mat-label>Select a card</mat-label>
+    <mat-select [(ngModel)]="selectedId">
+      <mat-option *ngFor="let card of cards" [value]="card._id">{{
+        card.number
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ng-container *ngIf="selectedId">
+    <h2>Saldo €2000</h2>
+    <app-movement
+      *ngFor="
+        let movement of movements
+          | filterById : selectedId
+          | slice : 0 : loadedElements
+      "
+      [timestamp]="movement.timestamp"
+      [type]="movement.type"
+      [amount]="movement.amount"
+      [description]="movement.description"
+    ></app-movement>
+
+    <button
+      [hidden]="loadedElements >= (movements | filterById : selectedId).length"
+      type="button"
+      style="width: 100%; margin-top: 15px"
+      mat-stroked-button
+      (click)="loadMoreElements()"
+    >
+      Load more...
+    </button>
+  </ng-container>
+</div>
