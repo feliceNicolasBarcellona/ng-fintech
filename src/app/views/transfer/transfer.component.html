@@ -1,0 +1,55 @@
+<form [formGroup]="transferForm">
+  <button
+    mat-raised-button
+    color="secondary"
+    type="button"
+  >
+    Contacts List
+  </button>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="transferForm.get('name')?.hasError('required')">
+      <strong>Name</strong> is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" />
+    <mat-error *ngIf="transferForm.get('lastName')?.hasError('required')">
+      <strong>Last Name</strong> is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>IBAN</mat-label>
+    <input matInput formControlName="iban" />
+    <mat-error *ngIf="transferForm.get('iban')?.hasError('required')">
+      <strong>IBAN</strong> is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Amount</mat-label>
+    <input matInput formControlName="amount" />
+    <mat-error *ngIf="transferForm.get('amount')?.hasError('required')">
+      <strong>Amount</strong> is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Select Card</mat-label>
+    <mat-select formControlName="selectCard" id="selectCard">
+      <mat-option value="">Select Card</mat-option>
+      <mat-option value="one">First option</mat-option>
+    </mat-select>
+    <mat-error *ngIf="transferForm.get('selectCard')?.hasError('required')">
+      <strong>Card</strong> is required
+    </mat-error>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="transferForm.invalid"
+  >
+    Send Money
+  </button>
+</form>

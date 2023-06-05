@@ -16,6 +16,7 @@ import { MovementComponent } from './views/movement/movement.component';
 import { MovementsComponent } from './views/movements/movements.component';
 import { TruncatePipe } from './shared/pipes/truncate.pipe';
 import { FilterByIdPipe } from './shared/pipes/filter-by-id.pipe';
+import { TransferComponent } from './views/transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FilterByIdPipe } from './shared/pipes/filter-by-id.pipe';
     MovementComponent,
     MovementsComponent,
     TruncatePipe,
-    FilterByIdPipe
+    FilterByIdPipe,
+    TransferComponent
   ],
   imports: [
     BrowserModule,
