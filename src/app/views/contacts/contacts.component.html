@@ -1,0 +1,34 @@
+<form style="padding: 20px 10px;">
+  <mat-list>
+    <div>
+      <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div mat-subheader>Contacts</div>
+    <mat-list-item>
+      <mat-icon matListItemIcon>account_circle</mat-icon>
+      <div matListItemTitle>Michele Stieven</div>
+      <div matListItemLine>1111111111111111</div>
+      <div matListItemMeta>
+        <mat-icon matListItemIcon matTooltip="select">done</mat-icon>
+        <mat-icon matListItemIcon matTooltip="edit">edit</mat-icon>
+        <mat-icon matListItemIcon matTooltip="remove">delete</mat-icon>
+      </div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>account_circle</mat-icon>
+      <div matListItemTitle>Fabio Biondi</div>
+      <div matListItemLine>22222222222222222</div>
+      <div matListItemMeta>
+        <mat-icon matListItemIcon matTooltip="select">done</mat-icon>
+        <mat-icon matListItemIcon matTooltip="edit">edit</mat-icon>
+        <mat-icon matListItemIcon matTooltip="remove">delete</mat-icon>
+      </div>
+    </mat-list-item>
+  </mat-list>
+  <mat-list mat-subheader>
+    <button style="width: 100%;" mat-raised-button color="primary" type="button">New Contact</button>
+  </mat-list>
+</form>

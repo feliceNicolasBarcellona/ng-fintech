@@ -1,8 +1,9 @@
-<form [formGroup]="transferForm">
+<form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
   <button
     mat-raised-button
     color="secondary"
     type="button"
+    (click)="openContactsList()"
   >
     Contacts List
   </button>
