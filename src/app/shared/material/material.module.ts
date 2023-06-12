@@ -34,6 +34,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 
+
 const modules = [
   MatCheckboxModule,
   MatCheckboxModule,

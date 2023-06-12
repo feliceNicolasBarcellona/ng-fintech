@@ -1,6 +1,13 @@
-<form style="padding: 20px 10px;">
-  <app-contact-list [contacts]="contacts" (selectContact)="selectContact($event)" (editContact)="editContact($event)" (removeContact)="removeContact($event)"></app-contact-list>
-  <mat-list mat-subheader>
-    <button style="width: 100%;" mat-raised-button color="primary" type="button">New Contact</button>
-  </mat-list>
-</form>
+<ng-container *ngIf="visible">
+  <app-contact-list
+    [contacts]="contacts"
+    (removeContact)="removeContact($event)"
+    (editContact)="editContact($event)"
+    (selectContact)="selectContact($event)"
+  ></app-contact-list>
+  <button style="width: 100%;" mat-raised-button color="primary" (click)="toggleModal()" >Nuovo contatto</button>
+</ng-container>
+<ng-container *ngIf="!visible">
+  <button style="width: 100%;" mat-stroked-button (click)="toggleModal()">Indietro</button>
+  <app-contact-form (saveContact)="saveHandler($event)" [initialContact]="selectedContact"></app-contact-form>
+</ng-container>

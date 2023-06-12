@@ -1,0 +1,31 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="contactForm.get('name')?.hasError('required')">
+      <strong>Name</strong> is required
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Surname</mat-label>
+      <input matInput formControlName="surname"/>
+      <mat-error *ngIf="contactForm.get('surname')?.hasError('required')">
+        <strong>Name</strong> is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>IBAN</mat-label>
+      <input matInput formControlName="iban" />
+      <mat-error *ngIf="contactForm.get('iban')?.hasError('required')">
+        <strong>Name</strong> is required
+      </mat-error>
+    </mat-form-field>
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="contactForm.invalid"
+  >
+    Save
+  </button>
+</form>

@@ -1,34 +1,63 @@
-import { Contact } from './../../models/contact';
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+  import { Contact } from './../../models/contact';
+  import { Component } from '@angular/core';
+  import { MatDialogRef } from '@angular/material/dialog';
+  import { contacts } from '../../../../src/mock-contacts';
 
 
-@Component({
-  selector: 'app-contacts',
-  templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.scss']
-})
-export class ContactsComponent {
+  @Component({
+    selector: 'app-contacts',
+    templateUrl: './contacts.component.html',
+    styleUrls: ['./contacts.component.scss'],
+  })
+  export class ContactsComponent {
+    visible: boolean = true;
 
-  contacts: Contact[]= [
-    {_id: '1', name: 'Michele', surname:'Stieven', iban: '1111111111111111'},
-    {_id: '2', name: 'Fabio', surname:'Biondi', iban: '1234123412341234'},
-  ]
+    selectedContact: Contact | null = null;
 
-  constructor(public dialogRef: MatDialogRef<ContactsComponent>) {}
+    contacts: Contact[] = contacts;
 
-  selectContact(contact: Contact){
-    console.log(contact._id);
+    constructor(public dialogRef: MatDialogRef<ContactsComponent>) {}
+
+    selectContact(contact: Contact) {;
+      this.dialogRef.close(contact)
+    }
+
+    saveHandler(contact: Contact){
+      if(this.selectedContact){
+        this.editContact(contact)
+      } else{
+        this.saveContact(contact)
+      }
+    }
+
+    saveContact(contact: Contact) {
+      this.contacts = [
+        ...this.contacts,
+        {
+          _id: Math.random().toString(),
+          name: contact.name,
+          surname: contact.surname,
+          iban: contact.iban,
+        },
+      ];
+      this.toggleModal()
+    }
+
+    editContact(contact: Contact) {
+      const index = this.contacts.findIndex(el => el._id === this.selectedContact?._id)
+      this.selectedContact = contact
+      this.contacts[index] = contact
+      this.toggleModal()
+    }
+
+    removeContact(contact: Contact) {
+      this.contacts = this.contacts.filter((el) => el._id !== contact._id);
+    }
+
+    toggleModal() {
+      this.visible = !this.visible;
+      if (this.visible) {
+        this.selectedContact = null;
+      }
+    }
   }
-
-  editContact(contact: Contact){
-    console.log(contact._id);
-  }
-
-  removeContact(contact: Contact){
-    console.log(contact._id);
-
-  }
-
-
-}
