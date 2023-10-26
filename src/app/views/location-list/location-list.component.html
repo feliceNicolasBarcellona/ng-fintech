@@ -1,0 +1,8 @@
+<mat-selection-list [multiple]="false">
+  <div mat-subheader>Locations</div>
+  <mat-list-option *ngFor="let location of locations" [value]="location._id" (click)="selectedLocation.emit(location)">
+    <mat-icon matListItemIcon>business</mat-icon>
+    <div matListItemTitle>{{ location.name }}</div>
+    <div matListItemLine>{{ location.address }}</div>
+  </mat-list-option>
+</mat-selection-list>

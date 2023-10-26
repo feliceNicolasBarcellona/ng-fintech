@@ -21,6 +21,10 @@ import { ContactsComponent } from './views/contacts/contacts.component';
 import { ContactListComponent } from './views/contact-list/contact-list.component';
 import { FilterPipe } from './shared/pipes/filter.pipe';
 import { ContactFormComponent } from './views/contact-form/contact-form.component';
+import { AppointmentsComponent } from './views/appointments/appointments.component';
+import { LocationListComponent } from './views/location-list/location-list.component';
+import { ScheduleConfirmComponent } from './views/schedule-confirm/schedule-confirm.component';
+import { ScheduleComponent } from './views/schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
     ContactsComponent,
     ContactListComponent,
     FilterPipe,
-    ContactFormComponent
+    ContactFormComponent,
+    AppointmentsComponent,
+    LocationListComponent,
+    ScheduleConfirmComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

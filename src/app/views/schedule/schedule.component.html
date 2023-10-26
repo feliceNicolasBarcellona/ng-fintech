@@ -1,0 +1,22 @@
+<mat-form-field appearance="outline">
+  <input
+    matInput
+    [ngModel]
+    name="day"
+    [matDatepicker]="picker"
+    [matDatepickerFilter]="calendarFilter"
+    (dateChange)="onDateChange($event)"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-selection-list *ngIf="selectedDay" [multiple]="false" [ngModel] name="slots" (selectionChange)="onSelectionChange($event)">
+  <div mat-subheader>Orari disponibili</div>
+  <mat-list-option *ngFor="let slot of filteredSlots" [value]="slot" >
+    <div class="slot-container">
+      <mat-icon mat-list-icon style="opacity: 0.5">schedule</mat-icon>
+      <div class="slot" mat-line>{{slot}}</div>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

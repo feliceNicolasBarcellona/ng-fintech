@@ -1,0 +1,16 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" position="end">
+    <app-schedule
+      [dayWithSlots]="dayWithSlots"
+      [selectedLocationId]="selectedLocationId"
+      (schedule)="onSchedule($event)"
+    ></app-schedule>
+  </mat-drawer>
+
+  <div>
+    <app-location-list
+      [locations]="locations"
+      (selectedLocation)="getLocationId($event)"
+    ></app-location-list>
+  </div>
+</mat-drawer-container>
